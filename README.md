@@ -1,7 +1,9 @@
 # go-simplebank
 
 Simple core banking written in golang.  
-A simple project to learn about design system.  
+A simple project to learn about design system.
 
-I'm follow this [tutorial](https://github.com/techschool/simplebank).  
-Current status: complete *part 1*
+I'm follow this [tutorial](https://myseco.udemy.com/course/backend-master-class-golang-postgresql-kubernetes).  
+Github link of this tutorial: [link](https://github.com/techschool/simplebank).
+
+Current status: complete _part 1_
