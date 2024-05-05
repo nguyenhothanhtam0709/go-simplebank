@@ -11,5 +11,5 @@ Current status: complete _part 6_
 ## System required
 
 Golang 1.22.2  
-Sqlc 1.26.0  
+[Sqlc](https://github.com/sqlc-dev/sqlc) 1.26.0  
 [Migrate](https://github.com/golang-migrate) 4.17.1
