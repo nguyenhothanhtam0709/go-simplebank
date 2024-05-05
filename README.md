@@ -6,9 +6,10 @@ A simple project to learn about design system.
 I'm follow this [tutorial](https://myseco.udemy.com/course/backend-master-class-golang-postgresql-kubernetes).  
 Github link of this tutorial: [link](https://github.com/techschool/simplebank).
 
-Current status: complete _part 4_
+Current status: complete _part 5_
 
 ## System required
 
 Golang 1.22.2  
-Sqlc 1.26.0
+Sqlc 1.26.0  
+[Migrate](https://github.com/golang-migrate) 4.17.1
