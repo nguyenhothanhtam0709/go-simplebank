@@ -1,6 +1,10 @@
 postgres:
 	docker run --name postgres16 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:16.2-alpine3.19
 
+pg_down:
+	docker stop postgres16
+	docker remove postgres16
+
 createdb:
 	docker exec -it postgres16 createdb --username=root --owner=root simple_bank
 
@@ -16,4 +20,7 @@ migratedown:
 sqlc:
 	sqlc generate
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc
+test:
+	go test -v -cover ./...
+
+.PHONY: postgres pg_down createdb dropdb migrateup migratedown sqlc
