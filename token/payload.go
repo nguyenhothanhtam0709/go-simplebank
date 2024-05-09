@@ -4,7 +4,6 @@ import (
 	"errors"
 	"time"
 
-	jwt "github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 )
 
@@ -44,38 +43,4 @@ func (payload *Payload) Valid() error {
 		return ErrExpiredToken
 	}
 	return nil
-}
-
-///
-/// Implement for jwt.Claims interface
-///
-
-// GetExpirationTime implements the Claims interface.
-func (c *Payload) GetExpirationTime() (*jwt.NumericDate, error) {
-	return jwt.NewNumericDate(c.ExpiredAt), nil
-}
-
-// GetNotBefore implements the Claims interface.
-func (c *Payload) GetNotBefore() (*jwt.NumericDate, error) {
-	return nil, nil
-}
-
-// GetIssuedAt implements the Claims interface.
-func (c *Payload) GetIssuedAt() (*jwt.NumericDate, error) {
-	return jwt.NewNumericDate(c.IssuedAt), nil
-}
-
-// GetAudience implements the Claims interface.
-func (c *Payload) GetAudience() (jwt.ClaimStrings, error) {
-	return nil, nil
-}
-
-// GetIssuer implements the Claims interface.
-func (c *Payload) GetIssuer() (string, error) {
-	return "", nil
-}
-
-// GetSubject implements the Claims interface.
-func (c *Payload) GetSubject() (string, error) {
-	return "", nil
 }
