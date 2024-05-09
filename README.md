@@ -8,7 +8,9 @@ Github link of this tutorial: [link](https://github.com/techschool/simplebank).
 
 Current status: complete _part 17_
 
-Currently part 11 is temporary paused.
+Parts are currently temporary paused:
+- 11
+- 21
 
 ## System required
 
