@@ -1,6 +1,17 @@
 package utils
 
+import "github.com/lib/pq"
+
 const (
-	ErrCodeForeignKeyViolation = "foreign_key_violation"
-	ErrCodeUniqueViolation     = "unique_violation"
+	PqErrCodeNameForeignKeyViolation = "foreign_key_violation"
+	PqErrCodeNameUniqueViolation     = "unique_violation"
 )
+
+const (
+	PqErrCodeForeignKeyViolation = "23503"
+	PqErrCodeUniqueViolation     = "23505"
+)
+
+var PqErrUniqueViolation = &pq.Error{
+	Code: PqErrCodeUniqueViolation,
+}
