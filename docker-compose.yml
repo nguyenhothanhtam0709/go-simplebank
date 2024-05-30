@@ -1,12 +1,25 @@
-version: "3.8"
+name: simple-bank
 
 services:
-  simplebank_pg:
-    container_name: simplebank_pg
+  postgres:
     image: postgres:16.2-alpine3.19
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=go_simplebank
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=simple_bank
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - GIN_MODE=release
+      - DB_SOURCE=postgresql://root:secret@postgres:5432/simple_bank?sslmode=disable
+    entrypoint: ["/app/wait-for.sh", "postgres:5432", "--", "/app/start.sh"]
+    command: ["/app/main"]
+    depends_on:
+      - postgres
